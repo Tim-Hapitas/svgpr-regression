@@ -1,0 +1,78 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "svgpr"
+version = "0.1.0"  # Semantic versioning: MAJOR.MINOR.PATCH
+description = "Stochastic Variational Gaussian Process Regression with Input-Dependent Noise"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+
+# Authors - you and Thavisha as code developers
+authors = [
+    {name = "Timothy Hapitas", email = "timothy.hapitas@queensu.ca"},
+    {name = "Thavisha E. Dharmawardena", email = "t.dharmawardena@nyu.edu"}
+]
+
+# Keywords help people find your package
+keywords = [
+    "gaussian-processes",
+    "machine-learning",
+    "variational-inference",
+    "astronomy",
+    "astrometry",
+    "heteroskedastic-noise",
+    "big-data",
+    "regression"
+]
+
+# PyPI classifiers - help categorize your package
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Astronomy",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+# Your actual dependencies - UPDATE with the versions you added
+dependencies = [
+    "torch>=2.2.2",
+    "gpytorch>=1.14",
+    "linear-operator>=0.6",
+    "numpy>=1.26.4",
+    "scipy>=1.12.0",
+    "tqdm>=4.66.2",
+    "matplotlib>=3.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "black",
+    "isort",
+]
+
+[project.urls]
+Homepage = "https://github.com/Tim-Hapitas/svgp-regression"
+Repository = "https://github.com/Tim-Hapitas/svgp-regression"
+Issues = "https://github.com/Tim-Hapitas/svgp-regression/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["svgpr"]
+
+# Code formatting tools (optional but recommended)
+[tool.black]
+line-length = 100
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+
