@@ -4,7 +4,7 @@ Tutorials and python implementation for performing Stochastic Variational Gaussi
 
 ## About
 
-A python package for scalable Gaussian process regression, allowing for simultaneous inference of both a dataset's latent function and input-dependent noise profile. Originally developed for applications in data-driven Galactic Dynamics but is applicable to any large datset with heteroskedastic noise. This package acts as both a wrapper and extension to the GPyTorch package ().
+A python package for scalable Gaussian process regression, allowing for simultaneous inference of both a dataset's latent function and input-dependent noise profile. Originally developed for applications in data-driven Galactic Dynamics but is applicable to any large datset with heteroskedastic noise. This package acts as both a wrapper and extension to the GPyTorch package (https://github.com/cornellius-gp/gpytorch).
 
 ## Status
 

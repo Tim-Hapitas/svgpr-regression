@@ -9,6 +9,12 @@ from gpytorch.variational import VariationalStrategy
 
 
 class VelocityDispersionMean(Mean):
+    """Parametric mean function using a tanh-based functional form.
+    
+    Implements the tanh vertical velocity dispersion mean function discussed in Hapitas et al.
+    This is included for those wishing to reproduce the paper results and is meant to be used
+    in conjuction with DispGPModel.
+    """
     def __init__(self, batch_shape=torch.Size(), 
                  bias_constraint=None, 
                  outscale_constraint=None,
@@ -49,7 +55,7 @@ class VelocityDispersionMean(Mean):
         
     @property
     def zbias(self):
-        return self.raw_zbias # no difference between raw and actual zbias (for now)
+        return self.raw_zbias
     
     @zbias.setter
     def zbias(self, value):
@@ -98,6 +104,34 @@ class VelocityDispersionMean(Mean):
 
 
 class DispGPModel(ApproximateGP):
+    """
+    The specific Sparse variational GP model used to model
+    input dependent velocity dispersion in Hapitas et al. 2025.
+    
+    Models the log-variance of heteroscedastic noise as a function of the
+    input location. Uses a parametric mean function (VelocityDispersionMean)
+    initialized from binned data statistics, combined with an RQ kernel.
+    
+    Parameters
+    ----------
+    inducing_points : torch.Tensor, shape (n_inducing, n_features)
+        Initial locations of the inducing points in the input space.
+    
+    Attributes
+    ----------
+    mean_module : VelocityDispersionMean
+        Parametric mean function with optinally learnable parameters.
+    covar_module : gpytorch.kernels.ScaleKernel(gpytorch.kernels.RQKernel)
+        Scaled RQ kernel with trainable lengthscale, relative lengthscale weighting, outputscale.
+    
+    Notes
+    -----
+    This model predicts the raw (unnormalized) noise variance. A softplus
+    transformation is applued in the inference path to ensure
+    positivity. This is specifically designed for the velocity
+    dispersion modeling approach in Hapitas et al. (2025). For designing custom
+    GP models please consult the appropriate tutorial (UNDER CONSTRUCTION)
+    """
     def __init__(self, inducing_points):
         variational_distribution = NaturalVariationalDistribution(inducing_points.size(0))
         variational_strategy = VariationalStrategy(self, inducing_points, variational_distribution, learn_inducing_locations = True)

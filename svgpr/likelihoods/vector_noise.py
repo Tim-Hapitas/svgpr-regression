@@ -19,7 +19,6 @@ class VectorNoiseGaussianLikelihood(_GaussianLikelihoodBase):
     def __init__(
           self,
           noise: Tensor,
-          #learn_additional_noise: Optional[bool] = False,
           noise_model: gpytorch.models.GP,
           batch_shape: Optional[torch.Size] = torch.Size(),
           **kwargs: Any,

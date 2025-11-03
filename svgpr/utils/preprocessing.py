@@ -63,7 +63,6 @@ def opt_init_disp_params(coords, data_to_bin, disp_model, init_guess, statistic=
     
     fit_result = minimize(nll, start_guess, args=(bin_coords, disp_data, disp_err, disp_model), method='L-BFGS-B')
     opt_init_params = fit_result.x
-    print(opt_init_params)
     
     # plot binned data if debug flag is on
     if debug:

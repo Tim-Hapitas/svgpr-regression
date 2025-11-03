@@ -28,14 +28,20 @@ class OptimizerConfig:
     optimizer_kwargs: Dict[str, Any] = field(default_factory=dict)
     mll_class: Type = gpytorch.mlls.VariationalELBO
 
-
 @dataclass
-class NoiseMeanInitConfig:
-    """Configuration for parametric noise mean initialization"""
-    enabled: bool = True
+class NoiseConfig:
     mean_function: Optional[Callable] = disp_model_tanh
     init_guess: Optional[numpy.ndarray] = field(default_factory = lambda: numpy.array([0.1, 1.0, 0.0, 1.0]))
     bins: float = 0.1
     bin_range: tuple = (-2.5, 2.5)
     bin_size: bool = True
     debug: bool = True
+
+@dataclass
+class NoiseMeanInitConfig:
+    """Configuration for parametric noise mean initialization"""
+    enabled: bool = False
+    settings: Optional[NoiseConfig] = None
+    
+
+

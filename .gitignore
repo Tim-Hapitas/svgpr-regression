@@ -81,6 +81,8 @@ data/
 *.h5
 *.hdf5
 *.fits
+FUNCTION_SAMPLES_ANALYSIS.md
+FUNCTION_SAMPLES_SUMMARY.txt
 
 # Plots and outputs
 plots/

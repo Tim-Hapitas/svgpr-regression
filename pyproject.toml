@@ -10,13 +10,11 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}
 
-# Authors - you and Thavisha as code developers
 authors = [
     {name = "Timothy Hapitas", email = "timothy.hapitas@queensu.ca"},
     {name = "Thavisha E. Dharmawardena", email = "t.dharmawardena@nyu.edu"}
 ]
 
-# Keywords help people find your package
 keywords = [
     "gaussian-processes",
     "machine-learning",
@@ -28,7 +26,6 @@ keywords = [
     "regression"
 ]
 
-# PyPI classifiers - help categorize your package
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
@@ -39,13 +36,12 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 
-# Your actual dependencies - UPDATE with the versions you added
 dependencies = [
     "torch>=2.2.2",
     "gpytorch>=1.14",
     "linear-operator>=0.6",
-    "numpy>=1.26.4",
-    "scipy>=1.12.0",
+    "numpy=1.26.4",
+    "scipy=1.12.0",
     "tqdm>=4.66.2",
     "matplotlib>=3.8.0",
 ]
@@ -69,7 +65,7 @@ packages = ["svgpr"]
 # Code formatting tools (optional but recommended)
 [tool.black]
 line-length = 100
-target-version = ['py38']
+target-version = ['py311']
 
 [tool.isort]
 profile = "black"
