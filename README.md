@@ -10,6 +10,27 @@ A python package for scalable Gaussian process regression, allowing for simultan
 
 * Under development! Installation instructions, code examples, full tutorials, and final citation information will be added following paper publication. 
 
+## Requirements
+
+- Python ≥ 3.11
+- PyTorch ≥ 2.2.2
+- GPyTorch ≥ 1.14
+- See `pyproject.toml` for complete dependency list
+
+## Installation
+
+### From source
+
+Clone the repository into a directory of your choosing.
+```bash
+git clone https://github.com/Tim-Hapitas/svgp-regression.git
+```
+Once complete, cd into the cloned folder and run the install
+```bash
+cd svgp-regression
+pip install .
+```
+
 ## Citation
 
 Based on the method presented in "Gaussian Process Methods for Very Large Astrometric Data Sets (Hapitas et al. 2025) - accepted for publication in ApJ.
