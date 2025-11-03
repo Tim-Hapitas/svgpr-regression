@@ -25,9 +25,13 @@ Clone the repository into a directory of your choosing.
 ```bash
 git clone https://github.com/Tim-Hapitas/svgp-regression.git
 ```
-Once complete, cd into the cloned folder and run the install
+Once complete, cd into the cloned folder and create a clean virtual environment (recommended so that there are no package conflicts with
+your other working environments)
 ```bash
 cd svgp-regression
+pip -m venv <environment-name>
+```bash
+Activate the environment and install with pip
 pip install .
 ```
 
